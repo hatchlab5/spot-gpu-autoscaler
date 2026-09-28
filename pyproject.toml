@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spot-gpu-autoscaler"
+version = "0.1.0"
+description = "Autoscale cheap spot GPUs across providers with a hard $/hr cap and an out-of-band orphan reaper."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Matt Bowman" }]
+keywords = ["gpu", "spot", "autoscaling", "vast.ai", "cost-control", "cloud"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: System :: Distributed Computing",
+    "Intended Audience :: Developers",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+spotscale = "spotscale.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hatchlab5/spot-gpu-autoscaler"
+Source = "https://github.com/hatchlab5/spot-gpu-autoscaler"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
